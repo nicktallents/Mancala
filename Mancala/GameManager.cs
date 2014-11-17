@@ -42,11 +42,11 @@ namespace Mancala
         }
         private Player GenerateAIPlayer()
         {
-            return new Player;
+            return new Player();
         }
         private Player CreatePlayer()
         {
-            return new Player;
+            return new Player();
         }
     }
 }
