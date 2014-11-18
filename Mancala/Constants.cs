@@ -10,10 +10,11 @@ namespace Mancala
     {
         public struct ClickEvent
         {
+            ClickEvent(int side, int index) { this.pitSide = side; this.pitIndex = index; }
             public int pitSide;
             public int pitIndex;
         }
-        public const int MARKERCOUNT = 48;
+        public const int TOKENCOUNT = 48;
 
         //Need some kind of helper function to find board locations for click events
     }

@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace Mancala
 {
-    class GameManager
+    public class GameManager
     {
+        private Board gameBoard;
         private Player player1;
         private Player player2;
+        private int currentPlayer;
         public GameManager()
         {
             player1 = CreatePlayer();
             player2 = CreatePlayer();
+            gameBoard = new Board();
         }
         public GameManager(int numAI) 
         {
@@ -36,6 +39,31 @@ namespace Mancala
                 Console.Write("Invalid AI number");
                 Environment.Exit(0);
             }
+            gameBoard = new Board();
+            currentPlayer = 1;
+        }
+        public Board GetBoard() { return gameBoard; }
+        public void GetInput(Constants.ClickEvent click)
+        {
+            if (click.pitSide == currentPlayer)
+            {
+                if (gameBoard.EmptyPit(click))
+                {
+                    //Invalid move
+                }
+                else
+                {
+                    gameBoard.MoveTokens(click);
+                }
+            }
+            else
+            {
+                //Invalid side
+            }
+        }
+        public int GetCurrentPlayer()
+        {
+            return currentPlayer;
         }
         public void Run()
         {
@@ -47,6 +75,15 @@ namespace Mancala
         private Player CreatePlayer()
         {
             return new Player();
+        }
+        private bool CheckWin()
+        {
+            if (gameBoard.SideEmpty(1) || gameBoard.SideEmpty(2))
+            {
+                //Handle game win
+                return true;
+            }
+            return false;
         }
     }
 }

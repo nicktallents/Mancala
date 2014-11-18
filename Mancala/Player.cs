@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Mancala
 {
-    class Player
+    public class Player
     {
-        private Constants c; 
         private bool AIplayer; 
         //Minimax structure
         //AI decision making

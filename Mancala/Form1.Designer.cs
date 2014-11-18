@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.p2bank = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p1bank = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p1pit5 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p1pit4 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p1pit3 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p2pit4 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p1pit2 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p2pit5 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p1pit1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p2pit6 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p2pit1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p1pit6 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p2pit2 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.p2pit3 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.ovalShape9 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape11 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape13 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape14 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape15 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape16 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape17 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape18 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape19 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape20 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape21 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape22 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape23 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
-            this.ovalShape24 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -56,24 +56,154 @@
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.ovalShape24,
-            this.ovalShape23,
-            this.ovalShape22,
-            this.ovalShape21,
-            this.ovalShape20,
-            this.ovalShape19,
-            this.ovalShape18,
-            this.ovalShape17,
-            this.ovalShape16,
-            this.ovalShape15,
-            this.ovalShape14,
-            this.ovalShape13,
-            this.ovalShape11,
-            this.ovalShape9,
+            this.p2bank,
+            this.p1bank,
+            this.p1pit5,
+            this.p1pit4,
+            this.p1pit3,
+            this.p2pit4,
+            this.p1pit2,
+            this.p2pit5,
+            this.p1pit1,
+            this.p2pit6,
+            this.p2pit1,
+            this.p1pit6,
+            this.p2pit2,
+            this.p2pit3,
             this.rectangleShape1});
             this.shapeContainer1.Size = new System.Drawing.Size(1084, 361);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
+            // 
+            // p2bank
+            // 
+            this.p2bank.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p2bank.Location = new System.Drawing.Point(30, 30);
+            this.p2bank.Name = "p2bank";
+            this.p2bank.Size = new System.Drawing.Size(100, 230);
+            // 
+            // p1bank
+            // 
+            this.p1bank.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p1bank.Location = new System.Drawing.Point(940, 30);
+            this.p1bank.Name = "p1bank";
+            this.p1bank.Size = new System.Drawing.Size(100, 230);
+            // 
+            // p1pit5
+            // 
+            this.p1pit5.BackColor = System.Drawing.SystemColors.Control;
+            this.p1pit5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p1pit5.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p1pit5.Location = new System.Drawing.Point(680, 160);
+            this.p1pit5.Name = "p1pit5";
+            this.p1pit5.Size = new System.Drawing.Size(100, 100);
+            this.p1pit5.Click += new System.EventHandler(this.p1pit5_Click);
+            // 
+            // p1pit4
+            // 
+            this.p1pit4.BackColor = System.Drawing.SystemColors.Control;
+            this.p1pit4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p1pit4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p1pit4.Location = new System.Drawing.Point(550, 160);
+            this.p1pit4.Name = "p1pit4";
+            this.p1pit4.Size = new System.Drawing.Size(100, 100);
+            this.p1pit4.Click += new System.EventHandler(this.p1pit4_Click);
+            // 
+            // p1pit3
+            // 
+            this.p1pit3.BackColor = System.Drawing.SystemColors.Control;
+            this.p1pit3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p1pit3.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p1pit3.Location = new System.Drawing.Point(420, 160);
+            this.p1pit3.Name = "p1pit3";
+            this.p1pit3.Size = new System.Drawing.Size(100, 100);
+            this.p1pit3.Click += new System.EventHandler(this.p1pit3_Click);
+            // 
+            // p2pit4
+            // 
+            this.p2pit4.BackColor = System.Drawing.SystemColors.Control;
+            this.p2pit4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p2pit4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p2pit4.Location = new System.Drawing.Point(420, 30);
+            this.p2pit4.Name = "p2pit4";
+            this.p2pit4.Size = new System.Drawing.Size(100, 100);
+            this.p2pit4.Click += new System.EventHandler(this.p2pit4_Click);
+            // 
+            // p1pit2
+            // 
+            this.p1pit2.BackColor = System.Drawing.SystemColors.Control;
+            this.p1pit2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p1pit2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p1pit2.Location = new System.Drawing.Point(290, 160);
+            this.p1pit2.Name = "p1pit2";
+            this.p1pit2.Size = new System.Drawing.Size(100, 100);
+            this.p1pit2.Click += new System.EventHandler(this.p1pit2_Click);
+            // 
+            // p2pit5
+            // 
+            this.p2pit5.BackColor = System.Drawing.SystemColors.Control;
+            this.p2pit5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p2pit5.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p2pit5.Location = new System.Drawing.Point(290, 30);
+            this.p2pit5.Name = "p2pit5";
+            this.p2pit5.Size = new System.Drawing.Size(100, 100);
+            this.p2pit5.Click += new System.EventHandler(this.p2pit5_Click);
+            // 
+            // p1pit1
+            // 
+            this.p1pit1.BackColor = System.Drawing.SystemColors.Control;
+            this.p1pit1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p1pit1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p1pit1.Location = new System.Drawing.Point(160, 160);
+            this.p1pit1.Name = "p1pit1";
+            this.p1pit1.Size = new System.Drawing.Size(100, 100);
+            this.p1pit1.Click += new System.EventHandler(this.p1pit1_Click);
+            // 
+            // p2pit6
+            // 
+            this.p2pit6.BackColor = System.Drawing.SystemColors.Control;
+            this.p2pit6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p2pit6.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p2pit6.Location = new System.Drawing.Point(160, 30);
+            this.p2pit6.Name = "p2pit6";
+            this.p2pit6.Size = new System.Drawing.Size(100, 100);
+            this.p2pit6.Click += new System.EventHandler(this.p2pit6_Click);
+            // 
+            // p2pit1
+            // 
+            this.p2pit1.BackColor = System.Drawing.SystemColors.Control;
+            this.p2pit1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p2pit1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p2pit1.Location = new System.Drawing.Point(810, 30);
+            this.p2pit1.Name = "p2pit1";
+            this.p2pit1.Size = new System.Drawing.Size(100, 100);
+            this.p2pit1.Click += new System.EventHandler(this.p2pit1_Click);
+            // 
+            // p1pit6
+            // 
+            this.p1pit6.BackColor = System.Drawing.SystemColors.Control;
+            this.p1pit6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.p1pit6.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p1pit6.Location = new System.Drawing.Point(810, 160);
+            this.p1pit6.Name = "p1pit6";
+            this.p1pit6.Size = new System.Drawing.Size(100, 100);
+            this.p1pit6.Click += new System.EventHandler(this.p1pit6_Click);
+            // 
+            // p2pit2
+            // 
+            this.p2pit2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p2pit2.Location = new System.Drawing.Point(680, 30);
+            this.p2pit2.Name = "p2pit2";
+            this.p2pit2.Size = new System.Drawing.Size(100, 100);
+            this.p2pit2.Click += new System.EventHandler(this.p2pit2_Click);
+            // 
+            // p2pit3
+            // 
+            this.p2pit3.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
+            this.p2pit3.Location = new System.Drawing.Point(550, 30);
+            this.p2pit3.Name = "p2pit3";
+            this.p2pit3.Size = new System.Drawing.Size(100, 100);
+            this.p2pit3.Click += new System.EventHandler(this.p2pit3_Click);
             // 
             // rectangleShape1
             // 
@@ -84,124 +214,6 @@
             this.rectangleShape1.Location = new System.Drawing.Point(0, 23);
             this.rectangleShape1.Name = "rectangleShape1";
             this.rectangleShape1.Size = new System.Drawing.Size(1070, 290);
-            // 
-            // ovalShape9
-            // 
-            this.ovalShape9.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape9.Location = new System.Drawing.Point(550, 30);
-            this.ovalShape9.Name = "ovalShape9";
-            this.ovalShape9.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape11
-            // 
-            this.ovalShape11.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape11.Location = new System.Drawing.Point(680, 30);
-            this.ovalShape11.Name = "ovalShape11";
-            this.ovalShape11.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape13
-            // 
-            this.ovalShape13.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape13.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape13.Location = new System.Drawing.Point(810, 160);
-            this.ovalShape13.Name = "ovalShape1";
-            this.ovalShape13.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape14
-            // 
-            this.ovalShape14.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape14.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape14.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape14.Location = new System.Drawing.Point(810, 30);
-            this.ovalShape14.Name = "ovalShape6";
-            this.ovalShape14.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape15
-            // 
-            this.ovalShape15.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape15.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape15.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape15.Location = new System.Drawing.Point(160, 30);
-            this.ovalShape15.Name = "ovalShape2";
-            this.ovalShape15.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape16
-            // 
-            this.ovalShape16.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape16.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape16.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape16.Location = new System.Drawing.Point(160, 160);
-            this.ovalShape16.Name = "ovalShape3";
-            this.ovalShape16.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape17
-            // 
-            this.ovalShape17.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape17.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape17.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape17.Location = new System.Drawing.Point(290, 30);
-            this.ovalShape17.Name = "ovalShape4";
-            this.ovalShape17.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape18
-            // 
-            this.ovalShape18.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape18.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape18.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape18.Location = new System.Drawing.Point(290, 160);
-            this.ovalShape18.Name = "ovalShape5";
-            this.ovalShape18.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape19
-            // 
-            this.ovalShape19.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape19.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape19.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape19.Location = new System.Drawing.Point(420, 30);
-            this.ovalShape19.Name = "ovalShape7";
-            this.ovalShape19.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape20
-            // 
-            this.ovalShape20.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape20.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape20.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape20.Location = new System.Drawing.Point(420, 160);
-            this.ovalShape20.Name = "ovalShape8";
-            this.ovalShape20.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape21
-            // 
-            this.ovalShape21.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape21.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape21.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape21.Location = new System.Drawing.Point(550, 160);
-            this.ovalShape21.Name = "ovalShape10";
-            this.ovalShape21.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape22
-            // 
-            this.ovalShape22.BackColor = System.Drawing.SystemColors.Control;
-            this.ovalShape22.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ovalShape22.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape22.Location = new System.Drawing.Point(680, 160);
-            this.ovalShape22.Name = "ovalShape12";
-            this.ovalShape22.Size = new System.Drawing.Size(100, 100);
-            // 
-            // ovalShape23
-            // 
-            this.ovalShape23.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape23.Location = new System.Drawing.Point(940, 30);
-            this.ovalShape23.Name = "ovalShape23";
-            this.ovalShape23.Size = new System.Drawing.Size(100, 230);
-            // 
-            // ovalShape24
-            // 
-            this.ovalShape24.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent50;
-            this.ovalShape24.Location = new System.Drawing.Point(30, 30);
-            this.ovalShape24.Name = "ovalShape24";
-            this.ovalShape24.Size = new System.Drawing.Size(100, 230);
             // 
             // menuStrip1
             // 
@@ -240,20 +252,20 @@
         #endregion
 
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape24;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape23;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape22;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape21;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape20;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape19;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape18;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape17;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape16;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape15;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape14;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape13;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape11;
-        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape9;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p2bank;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p1bank;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p1pit5;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p1pit4;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p1pit3;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p2pit4;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p1pit2;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p2pit5;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p1pit1;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p2pit6;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p2pit1;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p1pit6;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p2pit2;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape p2pit3;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
