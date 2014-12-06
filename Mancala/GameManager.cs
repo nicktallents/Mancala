@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Mancala
 {
@@ -49,7 +50,7 @@ namespace Mancala
             {
                 if (gameBoard.EmptyPit(click))
                 {
-                    //Invalid move
+                    MessageBox.Show("Invalid Move! Please select a pit that contains tokens.");
                 }
                 else
                 {
@@ -58,7 +59,7 @@ namespace Mancala
             }
             else
             {
-                //Invalid side
+                MessageBox.Show("Invalid Move! Please select a pit on your side.");
             }
         }
         public int GetCurrentPlayer()
@@ -78,7 +79,7 @@ namespace Mancala
         }
         private bool CheckWin()
         {
-            if (gameBoard.SideEmpty(1) || gameBoard.SideEmpty(2))
+            if (gameBoard.SideEmpty(0) || gameBoard.SideEmpty(1))
             {
                 //Handle game win
                 return true;

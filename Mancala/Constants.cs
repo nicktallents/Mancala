@@ -8,6 +8,27 @@ namespace Mancala
 {
     public static class Constants
     {
+        public static float[,,] tokenCountLoc = 
+        { 
+            { 
+                {210, 210}, 
+                {340, 210}, 
+                {470, 210},
+                {600, 210},
+                {730, 210},
+                {860, 210},
+                {990, 145}
+            },
+            {
+                {210, 80},
+                {340, 80},
+                {470, 80},
+                {600, 80},
+                {730, 80},
+                {860, 80},
+                {80, 145}
+            } 
+        };
         public struct ClickEvent
         {
             ClickEvent(int side, int index) { this.pitSide = side; this.pitIndex = index; }

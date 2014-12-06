@@ -10,85 +10,100 @@ namespace Mancala
     {
         private struct Pit
         {
-            public Pit(int t) { this.tokenCount = t; empty = false; }
+            public Pit(int t) { this.tokenCount = t; empty = (t == 0) ? true : false; }
             public int tokenCount;
-            public bool empty;
+            public bool isEmpty() {return empty;}
+            private bool empty;
+            public void emptyPit()
+            {
+                tokenCount = 0;
+                empty = true;
+            }
         }
-        private int Player1Bank;
-        private int Player2Bank;
-        private List<Pit> Player1Side = new List<Pit>();
-        private List<Pit> Player2Side = new List<Pit>();
+        private int[] Banks;
+        private Pit[][] Pits;
 
         public Board()
         {
-            Player1Bank = 0;
-            Player2Bank = 0;
-            for (int i = 0; i < 6; i++)
+            Banks = new int[2];
+            for (int i = 0; i < Banks.Length; i++)
             {
-                Player1Side.Insert(i, new Pit(4));
-                Player2Side.Insert(i, new Pit(4));
+                Banks[i] = 0;
+            }
+            Pits = new Pit[2][];
+            for (int i = 0; i < Pits.Length; i++)
+            {
+                Pits[i] = new Pit[6];
+                for (int j = 0; j < Pits[i].Length; j++)
+                {
+                    Pits[i][j] = new Pit(4);
+                }
             }
         }
+
         public void MoveTokens(Constants.ClickEvent click)
         {
-            //Logic for handling moving tokens from a pit
+            int currentSide = click.pitSide;
+            int currentIndex = click.pitIndex + 1;
+            int tokensToMove = Pits[currentSide][currentIndex-1].tokenCount;
+            Pits[currentSide][currentIndex-1].emptyPit();
+
+            while (tokensToMove > 0)
+            {
+                if (currentIndex > 5)
+                {
+                    Banks[currentSide]++;
+                    currentIndex = 0;
+                    currentSide = (currentSide + 1) % 2;
+                }
+                else
+                {
+                    Pits[currentSide][currentIndex].tokenCount++;
+                    currentIndex++;
+                }
+                tokensToMove--;
+            }
         }
         public bool EmptyPit(Constants.ClickEvent click)
         {
             if (click.pitSide == 1)
             {
-                if (Player1Side[click.pitIndex - 1].empty) return true;
+                if (Pits[click.pitSide][click.pitIndex].isEmpty()) return true;
             }
             else if (click.pitSide == 2)
             {
-                if (Player2Side[click.pitIndex - 1].empty) return true;
+                if (Pits[click.pitSide][click.pitIndex].isEmpty()) return true;
             }
             return false;
         }
+        
         public bool SideEmpty(int player)
         {
-            if (player == 1)
-            {
-               foreach (Pit p in Player1Side) 
-               {
-                   if (!p.empty)
-                   {
-                       return false;
-                   }
-               }
-            }
-            else if (player == 2)
-            {
-                foreach (Pit p in Player2Side)
-                {
-                    if (!p.empty)
-                    {
-                        return false;
-                    }
-                }
-            }
-            else
-            {
+            if(player>1) {
                 //Invalid player number
                 return false;
+            }
+            foreach (Pit p in Pits[player]) 
+            {
+                if (!p.isEmpty())
+                {
+                    return false;
+                }
             }
             return true;
         }
         public int GetScore(int player)
         {
-            if (player == 1)
-            {
-                return Player1Bank;
-            }
-            else if (player == 2)
-            {
-                return Player2Bank;
-            }
-            else
+            if (player > 1)
             {
                 //Invalid player number
                 return -1;
             }
+            return Banks[player];
+        }
+        public int GetTokenCountAtPit(int side, int index)
+        {
+            return Pits[side][index].tokenCount;
         }
 
     }

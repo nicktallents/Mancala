@@ -19,100 +19,148 @@ namespace Mancala
             GM = new GameManager(0);
         }
 
+        public void DrawString(int pitCount, int pitSide, int pitIndex)
+        {
+           
+            System.Drawing.Graphics formGraphics = this.CreateGraphics();
+            string drawString = pitCount.ToString();
+            System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 16);
+            System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Black);
+            float x = Constants.tokenCountLoc[pitSide,pitIndex,0];
+            float y = Constants.tokenCountLoc[pitSide, pitIndex, 1];
+            System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat();
+            formGraphics.DrawString(drawString, drawFont, drawBrush, x, y, drawFormat);
+            drawFont.Dispose();
+            drawBrush.Dispose();
+            formGraphics.Dispose();
+        }
+        public void UpdateBoard()
+        {
+            Board b = GM.GetBoard();
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    DrawString(b.GetTokenCountAtPit(i, j), i, j);
+                
+                }
+                DrawString(b.GetScore(i), i, 6);
+            }
+        }
+
         private void p1pit1_Click(object sender, EventArgs e)
         {
+            //Remember that I pass slightly different values for pit and side than the object names because of index notation.
+            //DON'T GET CONFUSED BY THIS LATER. 
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 1;
-            click.pitIndex = 1;
+            click.pitSide = 0;
+            click.pitIndex = 0;
             GM.GetInput(click);
+            UpdateBoard();
+
         }
 
         private void p1pit2_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 1;
-            click.pitIndex = 2;
-            GM.GetInput(click);
+            click.pitSide = 0;
+            click.pitIndex = 1;
+            GM.GetInput(click); 
+            UpdateBoard();
         }
 
         private void p1pit3_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 1;
-            click.pitIndex = 3;
+            click.pitSide = 0;
+            click.pitIndex = 2;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p1pit4_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 1;
-            click.pitIndex = 4;
+            click.pitSide = 0;
+            click.pitIndex = 3;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p1pit5_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 1;
-            click.pitIndex = 5;
+            click.pitSide = 0;
+            click.pitIndex = 4;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p1pit6_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 1;
-            click.pitIndex = 6;
+            click.pitSide = 0;
+            click.pitIndex = 5;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p2pit1_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 2;
-            click.pitIndex = 1;
+            click.pitSide = 1;
+            click.pitIndex = 0;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p2pit2_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 2;
-            click.pitIndex = 2;
+            click.pitSide = 1;
+            click.pitIndex = 1;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p2pit3_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 2;
-            click.pitIndex = 3;
+            click.pitSide = 1;
+            click.pitIndex = 2;
             GM.GetInput(click);
         }
 
         private void p2pit4_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 2;
-            click.pitIndex = 4;
+            click.pitSide = 1;
+            click.pitIndex = 3;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p2pit5_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 2;
-            click.pitIndex = 5;
+            click.pitSide = 1;
+            click.pitIndex = 4;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p2pit6_Click(object sender, EventArgs e)
         {
             Constants.ClickEvent click = new Constants.ClickEvent();
-            click.pitSide = 2;
-            click.pitIndex = 6;
+            click.pitSide = 1;
+            click.pitIndex = 5;
             GM.GetInput(click);
+            UpdateBoard();
+        }
+
+        private void onLoad(object sender, EventArgs e)
+        {
+            UpdateBoard();
         }
 
     }
