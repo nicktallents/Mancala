@@ -60,7 +60,11 @@ namespace Mancala
                 else
                 {
                     gameBoard.MoveTokens(click);
-                    currentPlayer = (currentPlayer + 1) % 2;
+                    gameBoard.CheckCapture(currentPlayer);
+                    if(!gameBoard.CheckExtraTurn(currentPlayer)) {
+                        currentPlayer = (currentPlayer + 1) % 2;
+                    }
+                    
                 }
             }
             else
@@ -88,9 +92,11 @@ namespace Mancala
                 //Handle game win
                 if (p1win)
                 {
+                    gameBoard.SideCleared(0);
                 }
                 else
                 {
+                    gameBoard.SideCleared(1);
                 }
                 return true;
             }

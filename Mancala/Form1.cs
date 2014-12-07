@@ -91,6 +91,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 0;
             click.pitIndex = 0;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
             
@@ -102,6 +103,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 0;
             click.pitIndex = 1;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click); 
             UpdateBoard();
         }
@@ -111,6 +113,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 0;
             click.pitIndex = 2;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -120,6 +123,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 0;
             click.pitIndex = 3;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -129,6 +133,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 0;
             click.pitIndex = 4;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -138,6 +143,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 0;
             click.pitIndex = 5;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -147,6 +153,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 1;
             click.pitIndex = 0;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -156,6 +163,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 1;
             click.pitIndex = 1;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -165,6 +173,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 1;
             click.pitIndex = 2;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -174,6 +183,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 1;
             click.pitIndex = 3;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -183,6 +193,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 1;
             click.pitIndex = 4;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }
@@ -192,6 +203,7 @@ namespace Mancala
             Constants.ClickEvent click = new Constants.ClickEvent();
             click.pitSide = 1;
             click.pitIndex = 5;
+            click.player = GM.GetCurrentPlayer();
             GM.GetInput(click);
             UpdateBoard();
         }

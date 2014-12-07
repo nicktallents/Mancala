@@ -8,6 +8,22 @@ namespace Mancala
 {
     public static class Constants
     {
+        public enum PITNAMES 
+        { 
+            PIT00 = 0, 
+            PIT01 = 1, 
+            PIT02 = 2, 
+            PIT03 = 3, 
+            PIT04 = 4, 
+            PIT05 = 5, 
+            BANK0 = 6, 
+            PIT10 = 10, 
+            PIT11 = 11, 
+            PIT12 = 12, 
+            PIT13 = 13, 
+            PIT14 = 14, 
+            PIT15 = 15,
+            BANK1 = 16 };
         public static float[,,] tokenCountLoc = 
         { 
             { 
@@ -31,9 +47,10 @@ namespace Mancala
         };
         public struct ClickEvent
         {
-            ClickEvent(int side, int index) { this.pitSide = side; this.pitIndex = index; }
+            ClickEvent(int side, int index, int player) { this.pitSide = side; this.pitIndex = index; this.player = player}
             public int pitSide;
             public int pitIndex;
+            public int player;
         }
         public const int TOKENCOUNT = 48;
 
