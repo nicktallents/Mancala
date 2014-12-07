@@ -242,6 +242,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.onActivated);
             this.Load += new System.EventHandler(this.onLoad);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -13,6 +13,7 @@ namespace Mancala
     public partial class Form1 : Form
     {
         private GameManager GM;
+        private bool firstActivated = true;
         public Form1()
         {
             InitializeComponent();
@@ -34,8 +35,22 @@ namespace Mancala
             drawBrush.Dispose();
             formGraphics.Dispose();
         }
+        public void DrawGUI(string currentPlayer)
+        {
+            System.Drawing.Graphics formGraphics = this.CreateGraphics();
+            System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 16);
+            System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(System.Drawing.Color.White);
+            float x = 450.0f;
+            float y = 320.0f;
+            System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat();
+            formGraphics.DrawString(currentPlayer, drawFont, drawBrush, x, y, drawFormat);
+            drawFont.Dispose();
+            drawBrush.Dispose();
+            formGraphics.Dispose();
+        }
         public void UpdateBoard()
         {
+            this.Refresh();
             Board b = GM.GetBoard();
             for (int i = 0; i < 2; i++)
             {
@@ -45,6 +60,27 @@ namespace Mancala
                 
                 }
                 DrawString(b.GetScore(i), i, 6);
+            }
+            string turn = "Current Player: ";
+            if(GM.GetCurrentPlayer() == 0) {
+                turn += "Player 1";
+            }
+            else {
+                turn += "Player 2";
+            }
+            DrawGUI(turn);
+            if (GM.CheckWin())
+            {
+                string msg = "Player 1 Score:" + b.GetScore(0) + "\nPlayer 2 Score: " + b.GetScore(1);
+                if(b.GetScore(0) > b.GetScore(1)) {
+                    msg += "\nPlayer 1 is the winner!";
+                }
+                else 
+                {
+                    msg += "\nPlayer 2 is the winner!";
+                }
+                MessageBox.Show(msg);
+                Application.Exit();
             }
         }
 
@@ -57,6 +93,7 @@ namespace Mancala
             click.pitIndex = 0;
             GM.GetInput(click);
             UpdateBoard();
+            
 
         }
 
@@ -129,6 +166,7 @@ namespace Mancala
             click.pitSide = 1;
             click.pitIndex = 2;
             GM.GetInput(click);
+            UpdateBoard();
         }
 
         private void p2pit4_Click(object sender, EventArgs e)
@@ -160,7 +198,15 @@ namespace Mancala
 
         private void onLoad(object sender, EventArgs e)
         {
-            UpdateBoard();
+        }
+
+        private void onActivated(object sender, EventArgs e)
+        {
+            if (firstActivated)
+            {
+                UpdateBoard();
+                firstActivated = false;
+            }
         }
 
     }

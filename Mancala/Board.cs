@@ -11,7 +11,9 @@ namespace Mancala
         private struct Pit
         {
             public Pit(int t) { this.tokenCount = t; empty = (t == 0) ? true : false; }
-            public int tokenCount;
+            private int tokenCount;
+            public void addToken() { tokenCount++; empty = false; }
+            public int getTokenCount() { return tokenCount; }
             public bool isEmpty() {return empty;}
             private bool empty;
             public void emptyPit()
@@ -45,7 +47,7 @@ namespace Mancala
         {
             int currentSide = click.pitSide;
             int currentIndex = click.pitIndex + 1;
-            int tokensToMove = Pits[currentSide][currentIndex-1].tokenCount;
+            int tokensToMove = Pits[currentSide][currentIndex-1].getTokenCount();
             Pits[currentSide][currentIndex-1].emptyPit();
 
             while (tokensToMove > 0)
@@ -58,7 +60,7 @@ namespace Mancala
                 }
                 else
                 {
-                    Pits[currentSide][currentIndex].tokenCount++;
+                    Pits[currentSide][currentIndex].addToken();
                     currentIndex++;
                 }
                 tokensToMove--;
@@ -103,7 +105,7 @@ namespace Mancala
         }
         public int GetTokenCountAtPit(int side, int index)
         {
-            return Pits[side][index].tokenCount;
+            return Pits[side][index].getTokenCount();
         }
 
     }

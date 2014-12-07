@@ -41,7 +41,12 @@ namespace Mancala
                 Environment.Exit(0);
             }
             gameBoard = new Board();
-            currentPlayer = 1;
+            Random r = new Random();
+            currentPlayer = r.Next(2);
+        }
+        public int GetCurrentPlayer()
+        {
+            return currentPlayer;
         }
         public Board GetBoard() { return gameBoard; }
         public void GetInput(Constants.ClickEvent click)
@@ -55,16 +60,13 @@ namespace Mancala
                 else
                 {
                     gameBoard.MoveTokens(click);
+                    currentPlayer = (currentPlayer + 1) % 2;
                 }
             }
             else
             {
                 MessageBox.Show("Invalid Move! Please select a pit on your side.");
             }
-        }
-        public int GetCurrentPlayer()
-        {
-            return currentPlayer;
         }
         public void Run()
         {
@@ -77,11 +79,19 @@ namespace Mancala
         {
             return new Player();
         }
-        private bool CheckWin()
+        public bool CheckWin()
         {
-            if (gameBoard.SideEmpty(0) || gameBoard.SideEmpty(1))
+            bool p1win = gameBoard.SideEmpty(0);
+            bool p2win = gameBoard.SideEmpty(1);
+            if (p1win || p2win)
             {
                 //Handle game win
+                if (p1win)
+                {
+                }
+                else
+                {
+                }
                 return true;
             }
             return false;
