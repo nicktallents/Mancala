@@ -59,6 +59,7 @@ namespace Mancala
                 }
                 else
                 {
+                    player2.GenerateMinimax();
                     gameBoard.MoveTokens(click);
                     gameBoard.CheckCapture(currentPlayer);
                     if(!gameBoard.CheckExtraTurn(currentPlayer)) {

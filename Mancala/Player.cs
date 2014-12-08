@@ -26,7 +26,7 @@ namespace Mancala
                     pits[i] = new PitState[6];
                     for (int j = 0; j < 6; j++)
                     {
-                        pits[i][j] = new PitState(i, j, 4);
+                        pits[i][j] = new PitState(j, i, 4);
                     }
                 }
                 banks = new int[2];
@@ -35,6 +35,26 @@ namespace Mancala
                     banks[i] = 0;
                 }
                 playerTurn = turn;
+                childNodes = new List<BoardState>();
+            }
+            public BoardState(BoardState b)
+            {
+                this.pits = new PitState[2][];
+                for (int i = 0; i < 2; i++)
+                {
+                    this.pits[i] = new PitState[6];
+                    for (int j = 0; j < 6; j++)
+                    {
+                        this.pits[i][j] = new PitState(j, i, b.pits[i][j].tokenCount);
+                    }
+                }
+                this.banks = new int[2];
+                for (int i = 0; i < 2; i++)
+                {
+                    this.banks[i] = b.banks[i];
+                }
+                this.playerTurn = b.playerTurn;
+                this.childNodes = new List<BoardState>();
             }
             public PitState[][] pits;
             public int[] banks;
@@ -96,13 +116,13 @@ namespace Mancala
             MinimaxTree = new BoardState(playerID);
             for (int i = 0; i < 6; i++)
             {
-                MinimaxTree.childNodes.Add(SimulateTurn(1,MinimaxTree));
+                MinimaxTree.childNodes.Add(SimulateTurn(1,new BoardState(MinimaxTree)));
             }
             
         }
         public BoardState SimulateTurn(int depth, BoardState root)
         {
-            BoardState b = root;
+            BoardState b = new BoardState(root);
             if (depth <= Constants.MAXDEPTH)
             {
                 for (int i = 0; i < 6; i++)
@@ -115,13 +135,13 @@ namespace Mancala
         }
         public BoardState MoveTokens(int player, int index, BoardState root)
         {
-            BoardState b = root;
+            BoardState b = new BoardState(root);
             Constants.PITNAMES lastPit = Constants.PITNAMES.PIT00;
             bool capture = false;
             int currentSide = player;
             int currentIndex = index;
-            int tokensToMove = b.pits[currentSide][currentIndex - 1].tokenCount;
-            b.pits[currentSide][currentIndex - 1].tokenCount = 0;
+            int tokensToMove = b.pits[currentSide][currentIndex].tokenCount;
+            b.pits[currentSide][currentIndex].tokenCount = 0;
             while (tokensToMove > 0)
             {
                 if (currentIndex > 5)

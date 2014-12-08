@@ -56,6 +56,8 @@ namespace Mancala
 
         public const int MAXDEPTH = 8;
 
+        public const int AICOUNT = 1;
+
         //Need some kind of helper function to find board locations for click events
     }
 }

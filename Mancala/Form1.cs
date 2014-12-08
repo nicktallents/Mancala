@@ -17,7 +17,7 @@ namespace Mancala
         public Form1()
         {
             InitializeComponent();
-            GM = new GameManager(0);
+            GM = new GameManager(Constants.AICOUNT);
         }
 
         public void DrawString(int pitCount, int pitSide, int pitIndex)
