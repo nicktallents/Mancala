@@ -8,6 +8,7 @@ namespace Mancala
 {
     public class Player
     {
+        public enum MAXMIN { MAX = 0, MIN = 1 };
         public struct PitState
         {
             public PitState(int index, int side, int count) { this.pitIndex = index; this.pitSide = side; this.tokenCount = count; }
@@ -36,6 +37,7 @@ namespace Mancala
                 }
                 playerTurn = turn;
                 childNodes = new List<BoardState>();
+                end = false;
             }
             public BoardState(BoardState b)
             {
@@ -55,9 +57,12 @@ namespace Mancala
                 }
                 this.playerTurn = b.playerTurn;
                 this.childNodes = new List<BoardState>();
+                end = false;
             }
             public PitState[][] pits;
             public int[] banks;
+
+            public bool end;
 
             //Player who's current turn it is
             public int playerTurn;
@@ -120,6 +125,65 @@ namespace Mancala
             }
             
         }
+        public Constants.ClickEvent Decision()
+        {
+            int index = ParseDecisionTree();
+            Constants.ClickEvent click = new Constants.ClickEvent();
+            click.pitIndex = index;
+            click.pitSide = playerID;
+            click.player = playerID;
+            return click;
+        }
+        public int ParseDecisionTree()
+        {
+            int max = 0;
+            int index = 0;
+            for (int i = 0; i < 6; i++)
+            {
+                int temp = ParseDecisionTree(MinimaxTree.childNodes[i], (int)MAXMIN.MIN);
+                if (temp > max && MinimaxTree.pits[playerID][i].tokenCount > 0)
+                {
+                    max = temp;
+                    index = i;
+                }
+            }
+            return index;
+        }
+        public int ParseDecisionTree(BoardState b, int turn)
+        {
+            if (b.end)
+            {
+                return b.banks[playerID] - b.banks[(playerID + 1) % 2];
+            }
+            if (turn == (int)MAXMIN.MAX)
+            {
+                int max = 0;
+                foreach (BoardState choice in b.childNodes)
+                {
+                    if (choice == null) continue;
+                    int temp = ParseDecisionTree(choice, (int)MAXMIN.MIN);
+                    if (temp > max)
+                    {
+                        max = temp;
+                    }
+                }
+                return max;
+            }
+            else
+            {
+                int min = 48;
+                foreach (BoardState choice in b.childNodes)
+                {
+                    if (choice == null) continue;
+                    int temp = ParseDecisionTree(choice, (int)MAXMIN.MAX);
+                    if (temp < min)
+                    {
+                        min = temp;
+                    }
+                }
+                return min;
+            }
+        }
         public BoardState SimulateTurn(int depth, BoardState root)
         {
             BoardState b = new BoardState(root);
@@ -127,8 +191,23 @@ namespace Mancala
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    b.childNodes.Add(MoveTokens(b.playerTurn, i, b));
-                    SimulateTurn(depth + 1, b);
+                    BoardState temp = MoveTokens(b.playerTurn, i, b);
+                    if (temp != null)
+                    {
+                        b.childNodes.Add(temp);
+                    }
+                }
+                if (b.childNodes.Count == 0)
+                {
+                    b.end = true;
+                }
+                if (depth == Constants.MAXDEPTH)
+                {
+                    b.end = true;
+                }
+                foreach (BoardState child in b.childNodes)
+                {
+                    SimulateTurn(depth + 1, child);
                 }
             }
             return b;
@@ -142,6 +221,10 @@ namespace Mancala
             int currentIndex = index;
             int tokensToMove = b.pits[currentSide][currentIndex].tokenCount;
             b.pits[currentSide][currentIndex].tokenCount = 0;
+            if (tokensToMove == 0)
+            {
+                return null;
+            }
             while (tokensToMove > 0)
             {
                 if (currentIndex > 5)

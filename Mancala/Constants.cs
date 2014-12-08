@@ -54,7 +54,7 @@ namespace Mancala
         }
         public const int TOKENCOUNT = 48;
 
-        public const int MAXDEPTH = 8;
+        public const int MAXDEPTH = 6;
 
         public const int AICOUNT = 1;
 

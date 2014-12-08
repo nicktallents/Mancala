@@ -59,11 +59,14 @@ namespace Mancala
                 }
                 else
                 {
-                    player2.GenerateMinimax();
                     gameBoard.MoveTokens(click);
                     gameBoard.CheckCapture(currentPlayer);
                     if(!gameBoard.CheckExtraTurn(currentPlayer)) {
                         currentPlayer = (currentPlayer + 1) % 2;
+                    }
+                    if (Constants.AICOUNT == 1)
+                    {
+                        RunAI();
                     }
                     
                 }
@@ -73,8 +76,19 @@ namespace Mancala
                 MessageBox.Show("Invalid Move! Please select a pit on your side.");
             }
         }
-        public void Run()
+        public void RunAI()
         {
+            while (currentPlayer == 1)
+            {
+                player2.GenerateMinimax();
+                gameBoard.MoveTokens(player2.Decision());
+                gameBoard.CheckCapture(currentPlayer);
+                if (!gameBoard.CheckExtraTurn(currentPlayer))
+                {
+                    currentPlayer = (currentPlayer + 1) % 2;
+                }
+            }
+           
         }
         private Player GenerateAIPlayer(int player)
         {
