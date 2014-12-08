@@ -15,25 +15,25 @@ namespace Mancala
         private int currentPlayer;
         public GameManager()
         {
-            player1 = CreatePlayer();
-            player2 = CreatePlayer();
+            player1 = CreatePlayer(0);
+            player2 = CreatePlayer(1);
             gameBoard = new Board();
         }
         public GameManager(int numAI) 
         {
             if (numAI == 0)
             {
-                player1 = CreatePlayer();
-                player2 = CreatePlayer();
+                player1 = CreatePlayer(0);
+                player2 = CreatePlayer(1);
             }
             else if(numAI == 1) {
-                player1 = CreatePlayer();
-                player2 = GenerateAIPlayer();
+                player1 = CreatePlayer(0);
+                player2 = GenerateAIPlayer(1);
             }
             else if (numAI == 2)
             {
-                player1 = GenerateAIPlayer();
-                player2 = GenerateAIPlayer();
+                player1 = GenerateAIPlayer(0);
+                player2 = GenerateAIPlayer(1);
             }
             else
             {
@@ -42,7 +42,7 @@ namespace Mancala
             }
             gameBoard = new Board();
             Random r = new Random();
-            currentPlayer = r.Next(2);
+            
         }
         public int GetCurrentPlayer()
         {
@@ -75,13 +75,13 @@ namespace Mancala
         public void Run()
         {
         }
-        private Player GenerateAIPlayer()
+        private Player GenerateAIPlayer(int player)
         {
-            return new Player();
+            return new Player(true, player);
         }
-        private Player CreatePlayer()
+        private Player CreatePlayer(int player)
         {
-            return new Player();
+            return new Player(false, player);
         }
         public bool CheckWin()
         {

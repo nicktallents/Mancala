@@ -130,6 +130,7 @@ namespace Mancala
                         default: break;
                     }
                 }
+                capture = false;
             }
         }
         public void CapturePit(int player, int pitSide, int pitIndex)

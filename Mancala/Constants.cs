@@ -47,12 +47,14 @@ namespace Mancala
         };
         public struct ClickEvent
         {
-            ClickEvent(int side, int index, int player) { this.pitSide = side; this.pitIndex = index; this.player = player}
+            ClickEvent(int side, int index, int player) { this.pitSide = side; this.pitIndex = index; this.player = player; }
             public int pitSide;
             public int pitIndex;
             public int player;
         }
         public const int TOKENCOUNT = 48;
+
+        public const int MAXDEPTH = 8;
 
         //Need some kind of helper function to find board locations for click events
     }
