@@ -97,18 +97,48 @@ namespace Mancala
                 if(currentPlayer == 0) {
                     switch (lastPit)
                     {
-                        case Constants.PITNAMES.PIT00: 
-                            CapturePit(currentPlayer, 1, 5); break;
+                        case Constants.PITNAMES.PIT00:
+                            if (!Pits[1][5].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 1, 5);
+                                CapturePit(currentPlayer, 0, 0);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT01:
-                            CapturePit(currentPlayer, 1, 4); break;
+                            if (!Pits[1][4].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 1, 4);
+                                CapturePit(currentPlayer, 0, 1);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT02:
-                            CapturePit(currentPlayer, 1, 3); break;
+                            if (!Pits[1][3].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 1, 3);
+                                CapturePit(currentPlayer, 0, 2);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT03:
-                            CapturePit(currentPlayer, 1, 2); break;
+                            if (!Pits[1][2].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 1, 2);
+                                CapturePit(currentPlayer, 0, 3);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT04:
-                            CapturePit(currentPlayer, 1, 1); break;
+                            if (!Pits[1][1].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 1, 1);
+                                CapturePit(currentPlayer, 0, 4);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT05:
-                            CapturePit(currentPlayer, 1, 0); break;
+                            if (!Pits[1][0].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 1, 0);
+                                CapturePit(currentPlayer, 0, 5);
+                            }
+                            break;
                         default: break;
                     }
                 }
@@ -116,17 +146,47 @@ namespace Mancala
                     switch(lastPit)
                     {
                         case Constants.PITNAMES.PIT10:
-                            CapturePit(currentPlayer, 0, 5); break;
+                            if (!Pits[0][5].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 0, 5);
+                                CapturePit(currentPlayer, 1, 0);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT11:
-                            CapturePit(currentPlayer, 0, 4); break;
+                            if (!Pits[0][4].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 0, 4);
+                                CapturePit(currentPlayer, 1, 1);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT12:
-                            CapturePit(currentPlayer, 0, 3); break;
+                            if (!Pits[0][3].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 0, 3);
+                                CapturePit(currentPlayer, 1, 2);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT13:
-                            CapturePit(currentPlayer, 0, 2); break;
+                            if (!Pits[0][2].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 0, 2);
+                                CapturePit(currentPlayer, 1, 3);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT14:
-                            CapturePit(currentPlayer, 0, 1); break;
+                            if (!Pits[0][1].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 0, 1);
+                                CapturePit(currentPlayer, 1, 4);
+                            }
+                            break;
                         case Constants.PITNAMES.PIT15:
-                            CapturePit(currentPlayer, 0, 0); break;
+                            if (!Pits[0][0].isEmpty())
+                            {
+                                CapturePit(currentPlayer, 0, 0);
+                                CapturePit(currentPlayer, 1, 5);
+                            }
+                            break;
                         default: break;
                     }
                 }

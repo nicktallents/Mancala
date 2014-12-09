@@ -9,6 +9,7 @@ namespace Mancala
 {
     public class GameManager
     {
+        private Form1 form;
         private Board gameBoard;
         private Player player1;
         private Player player2;
@@ -19,7 +20,7 @@ namespace Mancala
             player2 = CreatePlayer(1);
             gameBoard = new Board();
         }
-        public GameManager(int numAI) 
+        public GameManager(int numAI, Form1 form) 
         {
             if (numAI == 0)
             {
@@ -42,6 +43,7 @@ namespace Mancala
             }
             gameBoard = new Board();
             Random r = new Random();
+            this.form = form;
             
         }
         public int GetCurrentPlayer()
@@ -61,6 +63,7 @@ namespace Mancala
                 {
                     gameBoard.MoveTokens(click);
                     gameBoard.CheckCapture(currentPlayer);
+                    form.addHistory(click);
                     if(!gameBoard.CheckExtraTurn(currentPlayer)) {
                         currentPlayer = (currentPlayer + 1) % 2;
                     }
@@ -80,13 +83,18 @@ namespace Mancala
         {
             while (currentPlayer == 1)
             {
+                player2.UpdateKB(gameBoard);
                 player2.GenerateMinimax();
-                gameBoard.MoveTokens(player2.Decision());
+                Constants.ClickEvent c = player2.Decision();
+                form.addHistory(c);
+                gameBoard.MoveTokens(c);
                 gameBoard.CheckCapture(currentPlayer);
                 if (!gameBoard.CheckExtraTurn(currentPlayer))
                 {
                     currentPlayer = (currentPlayer + 1) % 2;
                 }
+                
+                form.UpdateBoard();
             }
            
         }

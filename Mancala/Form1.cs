@@ -13,13 +13,18 @@ namespace Mancala
     public partial class Form1 : Form
     {
         private GameManager GM;
+        private Queue<Constants.ClickEvent> history;
         private bool firstActivated = true;
         public Form1()
         {
             InitializeComponent();
-            GM = new GameManager(Constants.AICOUNT);
+            GM = new GameManager(Constants.AICOUNT, this);
+            history = new Queue<Constants.ClickEvent>();
         }
-
+        public void addHistory(Constants.ClickEvent click)
+        {
+            history.Enqueue(click);
+        }
         public void DrawString(int pitCount, int pitSide, int pitIndex)
         {
            
@@ -48,6 +53,25 @@ namespace Mancala
             drawBrush.Dispose();
             formGraphics.Dispose();
         }
+        public void DrawHistory()
+        {
+            System.Drawing.Graphics formGraphics = this.CreateGraphics();
+            string drawString;
+            System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 16);
+            System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(System.Drawing.Color.White);
+            float x = 50.0f;
+            float y = 400.0f;
+            System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat();
+            foreach (Constants.ClickEvent c in history.Reverse<Constants.ClickEvent>())
+            {
+                drawString = "Player " + (c.player + 1) + " played Pit " + (c.pitIndex + 1);
+                formGraphics.DrawString(drawString, drawFont, drawBrush, x, y, drawFormat);
+                y += 18.0f;
+            }
+            drawFont.Dispose();
+            drawBrush.Dispose();
+            formGraphics.Dispose();
+        }
         public void UpdateBoard()
         {
             this.Refresh();
@@ -69,6 +93,7 @@ namespace Mancala
                 turn += "Player 2";
             }
             DrawGUI(turn);
+            DrawHistory();
             if (GM.CheckWin())
             {
                 string msg = "Player 1 Score:" + b.GetScore(0) + "\nPlayer 2 Score: " + b.GetScore(1);

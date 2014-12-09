@@ -71,7 +71,7 @@
             this.p2pit2,
             this.p2pit3,
             this.rectangleShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1084, 361);
+            this.shapeContainer1.Size = new System.Drawing.Size(1084, 552);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
             // 
@@ -236,7 +236,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1084, 361);
+            this.ClientSize = new System.Drawing.Size(1084, 552);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.shapeContainer1);
             this.MainMenuStrip = this.menuStrip1;

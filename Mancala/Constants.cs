@@ -54,10 +54,12 @@ namespace Mancala
         }
         public const int TOKENCOUNT = 48;
 
-        public const int MAXDEPTH = 6;
+        public const int MAXDEPTH = 2;
 
         public const int AICOUNT = 1;
 
-        //Need some kind of helper function to find board locations for click events
+        public const int LOWMAX = -48;
+        public const int HIGHMIN = 48;
+
     }
 }
